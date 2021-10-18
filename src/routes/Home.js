@@ -5,7 +5,6 @@ import { actionCreators } from "../store";
 
 function Home({ toDos, addToDo }) {
   const [text, setText] = useState("");
-
   const onChange = (e) => {
     setText(e.target.value);
   };
@@ -23,7 +22,7 @@ function Home({ toDos, addToDo }) {
         <button>Add</button>
       </form>
       <ul>
-        {toDos.map((toDo) => (
+        {toDos?.map((toDo) => (
           <ToDo {...toDo} key={toDo.id} />
         ))}
       </ul>
@@ -32,7 +31,7 @@ function Home({ toDos, addToDo }) {
 }
 
 const mapStateToProps = (state) => {
-  return { toDos: state };
+  return { toDos: state.toDos };
 };
 
 const mapDispatchToProps = (dispatch) => {

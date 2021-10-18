@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
       params: { id },
     },
   } = ownProps;
-  return { toDo: state.find((toDo) => toDo.id === parseInt(id)) };
+  return { toDo: state.toDos?.find((toDo) => toDo.id === parseInt(id)) };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
   } = ownProps;
 
-  const back = ownProps.history.push;
+  const back = ownProps.history.replace;
   return {
     onBtnClick: () => {
       dispatch(actionCreators.deleteToDo(parseInt(id)));
