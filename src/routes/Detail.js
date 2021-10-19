@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
-import { useHistory } from "react-router";
-import { actionCreators } from "../store";
+import { remove } from "../store";
 
 const Detail = ({ toDo, onBtnClick }) => {
   return (
@@ -31,7 +30,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const back = ownProps.history.replace;
   return {
     onBtnClick: () => {
-      dispatch(actionCreators.deleteToDo(parseInt(id)));
+      dispatch(remove(parseInt(id)));
       back("/");
     },
   };
